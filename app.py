@@ -1,26 +1,10 @@
-"""
-Single-file Flask app (SQLite) for Campus Exchange.
-
-Features:
-- Uses sqlite3 (file: campus_exchange.db)
-- Creates schema and inserts 5-10 sample rows per table on first run
-- REST endpoints for students, items, requests, approvals, exchanges
-- Simple single-page frontend served at '/' (HTML + Vanilla JS + Bootstrap CDN)
-
-Run:
-    python campus_exchange_app.py
-
-The web UI runs on http://127.0.0.1:5000/
-
-Note: This file is intentionally self-contained so you can place it into a repo and run.
-"""
-
 from flask import Flask, request, jsonify, g, render_template_string
 from flask_cors import CORS
 import sqlite3
 import os
 from datetime import datetime
 
+os.remove("campus_exchange.db")
 DB_PATH = 'campus_exchange.db'
 
 app = Flask(__name__)
